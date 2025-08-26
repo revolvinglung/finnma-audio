@@ -2,6 +2,8 @@
    Base site styles
 ================================ */
 body {
+  overflow-x: hidden;
+  word-wrap: break-word;
   font-family: 'Roboto', sans-serif;
   color: white;
   background-color: black;
@@ -51,6 +53,11 @@ html {
   justify-content: center;
   gap: 6rem;
   margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
 }
 
 .hero-nav a {
@@ -60,6 +67,8 @@ html {
   letter-spacing: 5px;
   text-decoration: none;
   transition: text-shadow 0.1s;
+  flex: 1 1 auto;
+  min-width: 80px;
 }
 
 .hero-nav a:hover {
@@ -194,17 +203,20 @@ p1 {
   z-index: 1;
 }
 
-.background-text {
-  position: absolute;       /* Position over the image */
+.background-text {      /* Position over the image */
   bottom: 1rem;             /* Distance from the bottom of the wrapper */
   left: 1rem;               /* Distance from the left */
   right: 1rem;              /* Optional, keep text within edges */
-  color: white;
-  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent */
-  padding: 0rem 2rem;
-  border-radius: 8px;
+  clear: both;   /* pushes below floated elements */
+  display: block;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  padding: 0.5rem;
+  border-radius: 6px;
   font-size: 1rem;
-  margin-top: 2rem;
+  position: relative;
+  top: 1rem;
+  margin-top: 1rem;
 }
 
 .fantasy-bg {
@@ -283,6 +295,9 @@ p1 {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: block;
+  overflow: auto;  /* forces it to wrap children */
+  margin-bottom: 1rem;
 }
 
 .project-player li {
@@ -338,12 +353,24 @@ p1 {
    Highlights grid
 ================================ */
 .highlights-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 0.5rem auto 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
+
+@media (min-width: 768px) {
+  .highlights-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: none;
+}
+
 
 .highlight-track {
   display: flex;
@@ -368,10 +395,6 @@ p1 {
 /* ================================
    Track Images
 ================================ */
-.project-image {
-  display: none; /* hide left images for fantasy/scifi */
-}
-
 /* ================================
    Footer
 ================================ */
