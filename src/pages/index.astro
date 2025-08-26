@@ -1,0 +1,210 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Finnma.Audio">
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <h1>finnma audio</h1>
+    <p class="tagline">composer & sound designer</p>
+
+    <nav class="hero-nav">
+      <a href="#portfolio">music</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <h2>music</h2>
+
+    <!-- Project 1: Fantasy Scores -->
+    <div class="project-wrapper fantasy-bg">
+      <div class="project-title">FANTASY</div>
+      <p>Orchestral score for exploring a magical world.</p>
+      <div class="project-player full-width-player">
+        <div class="track-list">
+          <ul>
+            <li><button data-src="/audio/puzzle.wav" data-title="Nightfall">▶ Nightfall</button></li>
+            <li><button data-src="/audio/fantasyHighIntensity.wav" data-title="Journey">▶ Journey</button></li>
+            <li><button data-src="/audio/transition3.wav" data-title="Spirits">▶ Spirits</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Mystery Noir -->
+<div class="project-wrapper scifi-bg">
+  <div class="project-title2">MYSTERY NOIR</div>
+  <p>OST for a WWII era espionage game.</p>
+  <div class="project-player full-width-player">
+    <div class="track-list">
+      <ul>
+        <li><button data-src="/audio/Betrayal.wav" data-title="Betrayal">▶ Betrayal</button></li>
+        <li><button data-src="/audio/Sinking.wav" data-title="Sinking">▶ Sinking</button></li>
+        <li><button data-src="/audio/Ives.wav" data-title="Ives">▶ Agent Ives</button></li>
+        <li><button data-src="/audio/DoverCastle.wav" data-title="Titlescreen">▶ Titlescreen</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="background-text">
+    <p>I sampled recordings of ship horns in this work, they sound like saxophones, whales and sometimes airplanes.</p>
+  </div>
+</div>
+
+  
+
+    <!-- Standalone Tracks: Highlights -->
+    <div class="project-wrapper2 highlights-bg">
+      <div class="highlights-title">HIGHLIGHTS</div>
+      <div class="highlights-grid">
+        
+        <div class="highlight-track" 
+             data-src="/audio/CPMG_MT_EX1.wav" 
+             data-title="System Overload">
+          <img src="/audio-images/system-overload-bg.jpg" 
+               alt="System Overload" 
+               class="project-image" />
+          <div class="track-info">
+            <h3>▶ System Overload</h3>
+            <p>Synthy 00's era Electronic</p>
+          </div>
+        </div>
+
+        <div class="highlight-track" 
+             data-src="/audio/ventureForth.mp3" 
+             data-title="Venture Forth (Chiptune)">
+          <img src="/audio-images/venture-bg.jpg" 
+               alt="Venture Forth (Chiptune)" 
+               class="project-image" />
+          <div class="track-info">
+            <h3>▶ Venture Forth (Chiptune)</h3>
+            <p>I love composing with lower resolution</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>about</h2>
+<p>Hello there — thanks for checking out my site!</p>
+
+<p>I’m Finn. I’ve been enthralled by music and sound my entire life. I started learning music as a kid, playing drums, piano, and guitar. Since then, I’ve had formal training in music, music technology, and audio production — and I'm a bit taller.</p>
+
+<p>I love writing music that captures emotional depth — whether through solo piano, sweeping orchestral scores, or a minimalist approach. As a multi-instrumentalist, I often record live instruments, but I’m equally at home creating sci-fi soundscapes with synths and drum machines.</p>
+
+<p>Beyond composing, I enjoy recording my own sounds, from foley to field recordings. I love looking to the natural world for inspiration. Alien Isolation and Inside are some works that I aspire to.</p>
+
+<p>A core influence in my early life was the music of the Kingdom Hearts and Final Fantasy series, with their grand, cinematic soundscapes. The Halo series, scored by Martin O’Donnell, was equally formative. Soundtracks from Zelda and Pokémon also fueled my love for game music, with Breath of the Wild standing out as a masterclass in integrating music and sound design.</p>
+
+<p>As well as Sci-Fi, I also love fantasy and horror — anything otherworldly or supernatural, from Silent Hill, Lord of the Rings or anything by Hideo Kojima.</p>
+
+<p>Beyond games, I’m inspired by the works of Philip Glass, Steve Reich, Tchaikovsky, Debussy, Ben Salisbury, and Geoff Barrow.</p>
+
+<p>What matters most to me is the ability of music and sound to elevate a story and bring a world to life. Whether it’s composing a motif for a character, designing the cry of a monster, or filling an environment with atmosphere, my dream is to collaborate with creatives on projects that leave a lasting impact.</p>
+
+<p><strong>Skills:</strong> FMOD & Wwise · Pro Tools · Reaper · FL Studio · Unity · Unreal</p>
+
+    <p>I'm always eager to collaborate on new projects—feel free to reach out and share your ideas!</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>contact</h2>
+    <p>You can email me at <a href="mailto:finnma.audio@gmail.com">finnma.audio@gmail.com</a></p>
+<p>Discord: <strong>finnma.audio</strong></p>
+
+</a>
+
+  </section>
+
+  <!-- Global Player -->
+<div id="global-player">
+  <div class="player-wrapper">
+    <div class="current-track">Now playing: </div>
+    <div id="waveform"></div>
+    <div class="controls">
+      <button id="play-btn">▶</button>
+      <button id="pause-btn">⏸</button>
+      <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="0.5">
+    </div>
+  </div>
+</div>
+
+
+  <!-- Wavesurfer -->
+<!-- Wavesurfer -->
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const globalTitle = document.querySelector("#global-player .current-track");
+    const playBtn = document.getElementById("play-btn");
+    const pauseBtn = document.getElementById("pause-btn");
+    
+
+    let wavesurfer = WaveSurfer.create({
+      container: '#waveform',
+      waveColor: 'limegreen',
+      progressColor: '#0f0',
+      cursorColor: '#fff',
+      height: 60,
+      responsive: true,
+    });
+
+    function loadTrack(src, title) {
+      wavesurfer.load(src);
+      globalTitle.textContent = "Now playing: " + title;
+    }
+    const volumeSlider = document.getElementById("volume-slider");
+wavesurfer.setVolume(volumeSlider.value);
+
+volumeSlider.addEventListener("input", (e) => {
+  wavesurfer.setVolume(e.target.value);
+});
+
+    
+// ✅ Handles both buttons and highlight cards
+document.querySelectorAll("[data-src]").forEach(el => {
+  el.addEventListener("click", () => {
+    const src = el.getAttribute("data-src");
+    const title = el.getAttribute("data-title");
+
+    loadTrack(src, title);
+
+    // Wait until the track is ready, then autoplay
+    wavesurfer.once("ready", () => {
+      wavesurfer.play();
+    });
+  });
+});
+
+// ✅ Play/pause controls
+playBtn.addEventListener("click", () => wavesurfer.play());
+pauseBtn.addEventListener("click", () => wavesurfer.pause());
+
+  });
+</script>
+
+
+  <style>
+    /* Global Player */
+    #global-player {
+      
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 90%; max-width: 1200px; background: rgba(0, 0, 0, 0.85);
+      padding: 1rem; border-radius: 10px; z-index: 999;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    #global-player .current-track { font-weight: bold; color: #fff; }
+    .controls { display: flex; gap: 1rem; margin-top: 0.5rem; }
+    .controls button { background: #0f0; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+    .controls button:hover { background: #0c0; }
+  </style>
+
+</Layout>
