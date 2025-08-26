@@ -103,6 +103,7 @@ p1 {
 /* ================================
    Project Wrappers & Backgrounds
 ================================ */
+
 .project-wrapper {
   position: relative;
   padding: 4rem 2rem;
@@ -361,6 +362,20 @@ p1 {
    Highlights Grid - Mobile Fix
 ================================ */
 @media (max-width: 768px) {
+  .project-wrapper,
+  .project-wrapper2 {
+    padding: 2rem 1rem;             /* reduce padding on mobile */
+    margin: 2rem 0;                 /* reduce vertical spacing */
+  }
+
+  .project-wrapper.fantasy-bg,
+  .project-wrapper.scifi-bg,
+  .project-wrapper2.highlights-bg {
+    background-size: cover;          /* ensure it covers container */
+    background-position: center;     
+    width: 100vw;                    /* full viewport width */
+    margin-left: calc(-50vw + 50%);  /* counter section padding/margin */
+  }
   .highlights-grid {
     flex-direction: column;   /* Stack cards vertically */
     gap: 1rem;                /* Reduce spacing */
